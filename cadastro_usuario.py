@@ -26,7 +26,7 @@ def menu():
 
 #opção 1 - cadastro de usuário
 def cadastro_usuario():
-    print("Cadastrando...")
+    print("Cadastrando...teste")
     email = input("Informe seu e-mail: ")
     senha = input("Digite uma senha: ")
     try:
