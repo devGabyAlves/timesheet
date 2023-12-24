@@ -1,6 +1,7 @@
 import pyrebase
 import dotenv
 import os
+import stdiomask
 
 dotenv.load_dotenv(dotenv.find_dotenv())
 
@@ -30,7 +31,7 @@ def menu():
 def cadastro_usuario():
     print("Cadastrando...")
     email= input("Informe seu e-mail: ")
-    senha = input("Digite uma senha: ")
+    senha = stdiomask.getpass(prompt = "Digite uma senha: ", mask='*')
     try:
         user = auth.create_user_with_email_and_password(email, senha)
         print("Usuário cadastrado com sucesso!!")
@@ -47,10 +48,10 @@ def cadastro_usuario():
 def login():
     print("Logando...")
     email = input("Digite seu E-mail:\n")
-    senha = input("Digite sua senha: ")
+    senha = stdiomask.getpass(prompt = "Digite uma senha: ", mask='*')
     try:
         login = auth.sign_in_with_email_and_password(email, senha)
-        print("Olá novamente!!")
+        print("Olá, Seja bem-vindo!!")
     except:
         print("E-mail inválido...Tente novamente.")    
     
